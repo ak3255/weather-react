@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://schemas.nativescript.org/tns.xsd" class="p-4">
+    <Label text="{{ temperature + '°' }}" class="text-8xl text-center text-white font-light" />
+    <Label text="{{ description }}" class="text-xl text-center text-white capitalize mb-8" textTransform="capitalize" />
+    
+    <GridLayout columns="*, *" rows="auto, auto" class="bg-black bg-opacity-20 rounded-xl p-4 m-4">
+        <Label col="0" row="0" text="Feels like" class="text-white text-center" />
+        <Label col="1" row="0" text="Humidity" class="text-white text-center" />
+        
+        <Label col="0" row="1" text="{{ feelsLike + '°' }}" class="text-white text-center text-lg" />
+        <Label col="1" row="1" text="{{ humidity + '%' }}" class="text-white text-center text-lg" />
+    </GridLayout>
+</StackLayout>

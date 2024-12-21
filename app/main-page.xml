@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      navigatingTo="navigatingTo" 
+      class="bg-gradient-to-b from-blue-400 to-blue-600">
+    
+    <ActionBar title="{{ cityName || 'Weather' }}" flat="true" class="bg-transparent text-white" />
+    
+    <GridLayout rows="auto, *, auto">
+        <!-- Loading indicator -->
+        <ActivityIndicator row="0" busy="{{ isLoading }}" class="text-white m-4" />
+
+        <!-- Error message -->
+        <StackLayout row="1" visibility="{{ error ? 'visible' : 'collapsed' }}" class="p-4">
+            <Label text="{{ errorMessage }}" class="text-white text-center" textWrap="true" />
+        </StackLayout>
+
+        <!-- Weather content -->
+        <GridLayout row="1" rows="*, auto" visibility="{{ !isLoading && !error ? 'visible' : 'collapsed' }}">
+            <include src="~/components/weather-display" />
+        </GridLayout>
+
+        <!-- Refresh button -->
+        <Button row="2" text="Refresh" tap="{{ onRefresh }}" class="bg-transparent text-white m-4" />
+    </GridLayout>
+</Page>
